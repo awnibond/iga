@@ -1,1 +1,425 @@
-Hello2
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinical Case Study - M.B.</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #ffffff;
+      color: #333;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 0;
+      width: 120px;
+      background-color: #f5f5f5;
+      padding: 20px 10px;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      transition: width 0.3s ease;
+      overflow-x: hidden;
+    }
+
+    .sidebar a {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 0 20px;
+    }
+
+    header { background-color: #ffffff;$1
+      border-bottom: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+    header img {
+      height: 60px;
+    }
+
+    .header-text {
+      text-align: center;
+      flex: 1;
+    }
+
+    .header-text h1 {
+      margin: 0;
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+
+    .header-text h2 {
+      margin: 5px 0;
+      font-size: 1rem;
+      font-weight: normal;
+      font-style: italic;
+    }
+
+    .header-text p {
+      margin: 5px 0;
+      font-size: 0.9rem;
+    }
+
+    section {
+      margin: 40px 0;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    section h2 {
+      margin-top: 0;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        flex-direction: row;
+        width: 100%;
+        height: auto;
+        justify-content: space-around;
+        padding: 10px;
+      }
+
+      .sidebar a {
+        writing-mode: initial;
+        transform: none;
+      }
+    }
+      .abnormal {
+      color: red;
+      background-color: #ffe5e5;
+      animation: flash-bg 1.5s infinite;
+    }
+
+    @keyframes flash-bg {
+      0% { background-color: #ffe5e5; }
+      50% { background-color: transparent; }
+      100% { background-color: #ffe5e5; }
+    }
+    .sidebar-toggle {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: #007acc;
+      color: #fff;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 14px;
+      z-index: 1001;
+    }
+
+    .sidebar.collapsed {
+      width: 50px;
+      overflow: hidden;
+    }
+
+    .sidebar.collapsed a {
+      display: none;
+    }
+
+    .sidebar.collapsed img {
+      width: 30px;
+      height: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        flex-direction: row;
+        width: 100%;
+        height: auto;
+        justify-content: space-around;
+        padding: 10px;
+      }
+
+      .sidebar a {
+        writing-mode: initial;
+        transform: none;
+      }
+    }
+    .abnormal {
+      color: red;
+      animation: flash-bg 1.5s infinite;
+    }
+
+    @keyframes flash-bg {
+      0% { background-color: #ffe5e5; }
+      50% { background-color: transparent; }
+      100% { background-color: #ffe5e5; }
+    }
+</style>
+</head>
+<body>
+  <button class="sidebar-toggle" onclick="document.querySelector('.sidebar').classList.toggle('collapsed')">☰</button>
+
+  <div class="sidebar">
+    <img src="/mnt/data/b.png" alt="QR Code" style="width:60px; height:60px;">
+    <a href="#case-summary">Summary</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#labs">Labs</a>
+    <a href="#biopsy">Biopsy</a>
+    <a href="#takeaways">Takeaways</a>
+    <a href="#literature">Literature</a>
+    <a href="#management">Management</a>
+    <a href="#diagnosis">Diagnosis</a>
+  </div>
+
+  <div class="main-content">
+    <header>
+      <img src="/mnt/data/a.png" alt="Logo 2">
+      <div class="header-text">
+        <h1>Rapidly Progressive Glomerulonephritis due to IgA Nephropathy:</h1>
+        <h2>A Rare Presentation of a Common Disease</h2>
+        <p>Dr. Alaa Alsaqqa, Pediatric Nephrology Fellow – Year 1</p>
+        <p>Supervisor: Dr. Samhar Al-Akash, Pediatric Nephrologist Consultant</p>
+      </div>
+      <img src="/mnt/data/b.png" alt="Logo 1">
+    </header>
+
+    <section id="case-summary">
+      <h2>📝 Case Summary </h2>
+      <p><strong>M.B.</strong>, 14-year-old male, previously healthy with no significant family history, presented in Syria with the following:</p>
+      <ul>
+        <li><strong>Initial Presentation (June–July 2024):</strong> Low grade fever, flu-like illness, fatigue, pallor, reduced appetite, weight loss (6 kg), gross hematuria.</li>
+        <li><strong>Subsequent Course:</strong> Reduced urine output, elevated blood pressure, respiratory distress, lower limb swelling (signs of fluid overload).</li>
+        <li><strong>AJCH Presentation (January 2025):</strong> After missing several hemodialysis sessions due to travel and financial reasons – uncontrolled hypertension/hypertensive emergency, headache, epistaxis, abdominal pain, increasing fatigue, lower limb edema and pallor.</li>
+      </ul>
+    </section>
+
+    <section id="timeline">
+      <h2>🗓️ Case Timeline </h2>
+      <div style="position: relative; max-width: 100%;">
+        <img src="/mnt/data/_- visual selection (3).png" usemap="#timeline-map" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <map name="timeline-map">
+          <area shape="circle" coords="60,90,15" href="#july17" alt="July 17">
+          <area shape="circle" coords="60,170,15" href="#aug1" alt="August 1">
+          <area shape="circle" coords="60,250,15" href="#oct7" alt="October 7">
+          <area shape="circle" coords="60,330,15" href="#nov2" alt="November 2">
+          <area shape="circle" coords="60,410,15" href="#jan3" alt="January 3">
+          <area shape="circle" coords="600,90,15" href="#jun-jul" alt="June-July">
+          <area shape="circle" coords="600,170,15" href="#jul27" alt="July 27">
+          <area shape="circle" coords="600,250,15" href="#aug26" alt="August 26">
+          <area shape="circle" coords="600,330,15" href="#oct28" alt="October 28">
+          <area shape="circle" coords="600,410,15" href="#nov29" alt="November 29">
+        </map>
+      </div>
+    </section>
+
+    <section id="labs">
+      <h2>🧪 Laboratory Findings </h2>
+      <div style="overflow-x:auto">
+        <table style="width:100%; border-collapse:collapse; text-align:center; font-size:14px;">
+          <thead style="background-color:#e1e9f6; color:#003366;">
+            <tr>
+              <th style="border:1px solid #ccc; padding:8px;">Parameter</th>
+              <th style="border:1px solid #ccc; padding:8px;">July 2024</th>
+              <th style="border:1px solid #ccc; padding:8px;">January 2025</th>
+              <th style="border:1px solid #ccc; padding:8px;">Reference Range</th>
+            </tr>
+          </thead>
+          <tbody>
+<tr style="background-color: #f9f9f9;"><td>WBC</td><td>-</td><td>6.5 n/L</td><td>5–13 n/L</td></tr>
+<tr><td>Hemoglobin</td><td class="abnormal">6.5 g/dL</td><td class="abnormal">6.7 g/dL</td><td>11.5–15.5 g/dL</td></tr>
+<tr style="background-color: #f9f9f9;"><td>Platelet</td><td>-</td><td class="abnormal">91 n/L</td><td>170–450 n/L</td></tr>
+<tr><td>Creatinine</td><td class="abnormal">6.7 mg/dL</td><td class="abnormal">6.7 mg/dL</td><td>0.44–0.65 mg/dL</td></tr>
+<tr style="background-color: #f9f9f9;"><td>Urea</td><td>-</td><td class="abnormal">132 mg/dL</td><td>19.26–47.2 mg/dL</td></tr>
+<tr><td>Sodium</td><td>-</td><td>136 mmol/L</td><td>136–145 mmol/L</td></tr>
+<tr style="background-color: #f9f9f9;"><td>Potassium</td><td>-</td><td class="abnormal">4.6 mmol/L</td><td>3.5–5.1 mmol/L</td></tr>
+<tr><td>Phosphate</td><td class="abnormal">8.4 mg/dL</td><td>5.6 mg/dL</td><td>3.5–6.2 mg/dL</td></tr>
+<tr style="background-color: #f9f9f9;"><td>LDH</td><td>-</td><td class="abnormal">482 U/L</td><td>170–283 U/L</td></tr>
+<tr><td>C3, C4</td><td>Normal</td><td>Normal</td><td>-</td></tr>
+<tr style="background-color: #f9f9f9;"><td>Ferritin</td><td>-</td><td class="abnormal">4985 ng/mL</td><td>13.7–78.8 ng/mL</td></tr>
+<tr><td>24h urine protein</td><td class="abnormal">3000 mg/24h</td><td>-</td><td><500 mg/24h</td></tr>
+<tr style="background-color: #f9f9f9;"><td>Urine protein/creatinine</td><td class="abnormal">11.1 g/g</td><td class="abnormal">3.97 g/g</td><td><0.2 g/g</td></tr>
+<tr><td>C-ANCA, P-ANCA</td><td>Normal</td><td>Negative</td><td>-</td></tr>
+<tr style="background-color: #f9f9f9;"><td>Anti-dsDNA, ANA</td><td>Normal</td><td>Negative</td><td>-</td></tr>
+<tr><td>Anti-GBM</td><td>Normal</td><td>Negative</td><td>-</td></tr>
+<tr style="background-color: #f9f9f9;"><td>HIV, HCV</td><td>Normal</td><td>Negative</td><td>-</td></tr>
+<tr><td>IgA</td><td class="abnormal">0.19 g/dL</td><td class="abnormal">0.21 g/dL</td><td>0.47–2.49 g/dL</td></tr>
+<tr style="background-color: #f9f9f9;"><td>IgG</td><td>-</td><td class="abnormal">2.25 g/dL</td><td>7.16–17.11 g/dL</td></tr>
+<tr><td>PTH</td><td>-</td><td class="abnormal">80 pg/mL</td><td>15–65 pg/mL</td></tr>
+</tbody>
+        </table>
+      </div>
+      <br>
+      <h4>Other Investigations</h4>
+      <ul>
+        <li><strong>USS Kidneys:</strong> Both kidneys normal in size with diffuse increased renal cortical echotexture. Corticomedullary differentiation maintained. No hydronephrosis.</li>
+        <li><strong>Blood film:</strong> Mild normocytic normochromic anemia and reactive picture.</li>
+        <li><strong>ECHO:</strong> Mild pericardial effusion, mild LVH, good cardiac function.</li>
+      </ul>
+    </section>
+
+    <section id="biopsy">
+      <h2>🔬 Kidney Biopsy Results </h2>
+      <p><strong>First Kidney Biopsy (26/08/2024)</strong><br>
+      Focal necrotizing GN (advanced chronic changes with scarring in the glomeruli and mild activity).</p>
+
+      <p><strong>Second Kidney Biopsy (03/01/2025)</strong></p>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+        <div style="text-align: center; max-width: 30%;">
+          <img src="/mnt/data/Picture1.png" alt="PAS stain showing a sclerotic" style="width: 100%; border-radius: 10px;">
+          <p>PAS stain showing a sclerotic</p>
+        </div>
+        <div style="text-align: center; max-width: 30%;">
+          <img src="/mnt/data/Picture2.png" alt="PAS stain Segmental scar" style="width: 100%; border-radius: 10px;">
+          <p>PAS stain Segmental scar, fibrous Crescent and mesangial Hypercellularity in the preserved Portion of the glomerulus</p>
+        </div>
+        <div style="text-align: center; max-width: 30%;">
+          <img src="/mnt/data/Picture3.png" alt="Jones stain showing Globally sclerotic" style="width: 100%; border-radius: 10px;">
+          <p>Jones stain showing Globally sclerotic Glomerulus with an Old fibrous crescent</p>
+        </div>
+        <div style="text-align: center; max-width: 30%;">
+          <img src="/mnt/data/Picture4.png" alt="Trichrome showing Severe fibrosis" style="width: 100%; border-radius: 10px;">
+          <p>Trichrome showing Severe fibrosis</p>
+        </div>
+        <div style="text-align: center; max-width: 30%;">
+          <img src="/mnt/data/Picture5.png" alt="IF: IgA staining in a Segmentally sclerotic glomerulus" style="width: 100%; border-radius: 10px;">
+          <p>IF: IgA staining in a Segmentally sclerotic glomerulus</p>
+        </div>
+      </div>
+    <br>
+      <h4>Detailed Findings of Second Biopsy</h4>
+      <div style="overflow-x:auto">
+        <table style="width:100%; border-collapse:collapse; text-align:left; font-size:14px;">
+          <thead style="background-color:#e1e9f6; color:#003366;">
+            <tr>
+              <th style="border:1px solid #ccc; padding:8px; background-color:#d0d7e9;">Category</th>
+              <th style="border:1px solid #ccc; padding:8px; background-color:#d0d7e9;">Findings</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border:1px solid #ccc; padding:8px;"><strong>Glomerular (Total: 40)</strong></td>
+              <td style="border:1px solid #ccc; padding:8px;">
+                - 36/40 (90%): Globally sclerotic<br>
+                - 4/40 (10%): Patent but show segmental sclerosis, hyalinosis, and adhesion to Bowman's capsule
+              </td>
+            </tr>
+            <tr style="background-color: #f9f9f9;">
+              <td style="border:1px solid #ccc; padding:8px;"><strong>Light Microscopy</strong></td>
+              <td style="border:1px solid #ccc; padding:8px;">
+                - Mesangial matrix: Mild increase<br>
+                - Mesangial & endocapillary hypercellularity (PAS stain) M1, E1 (Oxford score)<br>
+                - Capillary wall thickening, but no spikes or holes (silver stain)<br>
+                - No cellular crescents or fibrinoid necrosis<br>
+                - Fibrous crescents in all glomeruli on toluidine blue<br>
+                - Tubulointerstitial changes: Mild acute tubular injury<br>
+                - Interstitial inflammation: Mild, with lymphocytes & plasma cells<br>
+                - Tubular atrophy & interstitial fibrosis: 70% of cortex (T2)<br>
+                - Vessels: Larger arteries normal, mild arteriolar hyalinosis
+              </td>
+            </tr>
+            <tr>
+              <td style="border:1px solid #ccc; padding:8px;"><strong>Immunofluorescence</strong></td>
+              <td style="border:1px solid #ccc; padding:8px;">
+                - Glomeruli in IF: 11 total, 10 globally sclerotic<br>
+                - Granular mesangial staining: IgA (2+), IgG (2+), IgM (trace), C3 (2+), kappa (2+), lambda (1–2+)<br>
+                - All other stains negative
+              </td>
+            </tr>
+            <tr style="background-color: #f9f9f9;">
+              <td style="border:1px solid #ccc; padding:8px;"><strong>Electron Microscopy</strong></td>
+              <td style="border:1px solid #ccc; padding:8px;">
+                - GBM normal thickness but diffusely wrinkled<br>
+                - No subepithelial, subendothelial, or intramembranous deposits<br>
+                - Mild mesangial matrix increase with mesangial deposits<br>
+                - Widespread podocyte foot process effacement
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="takeaways">
+      <h2>📌 Key Takeaways </h2>
+      <ul style="list-style: none; padding: 0;">
+        <li style="background-color: #e6f4fd; padding: 10px; margin-bottom: 8px; border-left: 4px solid #007acc;">
+          IgA Nephropathy in children may rarely present with a rapidly progressive GN picture
+        </li>
+        <li style="background-color: #e6f4fd; padding: 10px; margin-bottom: 8px; border-left: 4px solid #007acc;">
+          Aggressive therapy is recommended for RPGN due to IgA Nephropathy
+        </li>
+        <li style="background-color: #e6f4fd; padding: 10px; margin-bottom: 8px; border-left: 4px solid #007acc;">
+          End-stage kidney disease may still develop despite aggressive therapy
+        </li>
+        <li style="background-color: #e6f4fd; padding: 10px; margin-bottom: 8px; border-left: 4px solid #007acc;">
+          Urine output may be restored even when kidney function does not significantly improve
+        </li>
+      </ul>
+    </section>
+
+    <section id="literature">
+      <h2>📚 Literature Review </h2>
+      <p>IgA nephropathy (IgAN) is the most common primary glomerulonephritis worldwide. While typically characterized by a slowly progressive course, approximately 5% of patients present with rapidly progressive glomerulonephritis (RPGN).</p>
+
+      <p>Recent studies suggest that aggressive immunosuppressive therapy combining steroids with cyclophosphamide or rituximab may improve outcomes in severe cases, particularly when initiated early.</p>
+
+      <p>The Oxford Classification for IgAN (MEST-C score) helps stratify risk and guide treatment decisions. This patient's score (M1 E1 S1 T2 C0) indicates mesangial hypercellularity, endocapillary hypercellularity, segmental glomerulosclerosis, and severe tubular atrophy/interstitial fibrosis, all associated with poorer prognosis.</p>
+    </section>
+
+    <section id="management">
+      <h2>🩺 Current Management </h2>
+      <ul style="list-style: none; padding: 0;">
+        <li style="background-color: #f0f9f1; padding: 10px; margin-bottom: 8px; border-left: 4px solid #28a745;">
+          Lifestyle modification and diet control
+        </li>
+        <li style="background-color: #f0f9f1; padding: 10px; margin-bottom: 8px; border-left: 4px solid #28a745;">
+          Blood pressure control (currently on amlodipine)
+        </li>
+        <li style="background-color: #f0f9f1; padding: 10px; margin-bottom: 8px; border-left: 4px solid #28a745;">
+          Regular hemodialysis
+        </li>
+        <li style="background-color: #f0f9f1; padding: 10px; margin-bottom: 8px; border-left: 4px solid #28a745;">
+          Vitamin D supplementation
+        </li>
+        <li style="background-color: #f0f9f1; padding: 10px; margin-bottom: 8px; border-left: 4px solid #28a745;">
+          Undergoing evaluation for kidney transplant
+        </li>
+      </ul>
+    </section>
+
+    <section id="diagnosis">
+      <h2>✅ Final Diagnosis </h2>
+      <p><strong>Rapidly Progressive Glomerulonephritis due to IgA Nephropathy</strong></p>
+    </section>
+  </div>
+
+<script>
+  const toggleButton = document.querySelector('.sidebar-toggle');
+  const sidebar = document.querySelector('.sidebar');
+
+  toggleButton.addEventListener('click', () => {
+    sidebar.classList.toggle('collapsed');
+  });
+</script>
+</body>
+</html>
