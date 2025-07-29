@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nephrology Clinic Quality Project Poster</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            padding: 20px;
+            color: #1f2937;
+        }
+        
+        .poster-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            padding: 40px;
+        }
+        
+        /* Header Section with Logos and Title */
+        .header-section {
+            display: grid;
+            grid-template-columns: 150px 1fr 150px;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #e5e7eb;
+        }
+        
+        .logo-placeholder {
+            height: 80px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .title-section {
+            text-align: center;
+            padding: 0 30px;
+        }
+        
+        .title-section h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e40af;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+        
+        .title-section .subtitle {
+            font-size: 1.2rem;
+            color: #6b7280;
+            font-weight: 400;
+        }
+        
+        .title-section .date {
+            font-size: 1rem;
+            color: #9ca3af;
+            margin-top: 10px;
+        }
+        
+        /* Team Members Section */
+        .team-section {
+            background: linear-gradient(135deg, #e0f2fe 0%, #b3e5fc 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .team-members {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .team-member {
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .team-member.lead {
+            font-weight: 700;
+            color: #dc2626;
+        }
+        
+        .team-member .name {
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        
+        .team-member .role {
+            font-size: 0.8rem;
+            color: #6b7280;
+        }
+        
+        /* Main Grid Layout */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .full-width {
+            grid-column: 1 / -1;
+        }
+        
+        /* Section Styling */
+        .section {
+            background: #f8fafc;
+            border: 2px solid #e5e7eb;
+            border-radius: 15px;
+            padding: 30px;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .section h2 {
+            color: #1e40af;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 10px;
+        }
+        
+        .section-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        /* Problem Statement - Keep existing styling */
+        .problem-section .section-content {
+            justify-content: flex-start;
+        }
+        
+        .problem-text {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+        
+        .metrics-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .metric:last-child {
+            margin-bottom: 0;
+        }
+        
+        .metric-label {
+            font-weight: 600;
+            color: #374151;
+        }
+        
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #dc2626;
+        }
+        
+        .metric-target {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #10b981;
+        }
+        
+        .problem-icons {
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        .problem-icon {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .problem-icon .icon {
+            width: 50px;
+            height: 50px;
+            background: #ef4444;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            color: white;
+            font-size: 20px;
+        }
+        
+        .problem-icon .label {
+            font-size: 0.8rem;
+            color: #374151;
+            font-weight: 500;
+        }
+        
+        /* SMART Aim Statement */
+        .smart-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+        }
+        
+        .smart-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-top: 3px solid #10b981;
+        }
+        
+        .smart-item .letter {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #10b981;
+            margin-bottom: 8px;
+        }
+        
+        .smart-item .word {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .smart-item .description {
+            font-size: 0.75rem;
+            color: #6b7280;
+            line-height: 1.3;
+        }
+        
+        /* Placeholder for diagrams */
+        .diagram-placeholder {
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            border: 2px dashed #9ca3af;
+            border-radius: 10px;
+            padding: 40px 20px;
+            text-align: center;
+            color: #6b7280;
+            font-size: 1rem;
+            font-weight: 500;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Special styling for different sections */
+        .key-driver-section {
+            min-height: 400px;
+        }
+        
+        .sustainability-section {
+            min-height: 350px;
+        }
+        
+        /* Bottom row with PDSA and Improvement Chart */
+        .bottom-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .poster-container {
+                box-shadow: none;
+                border-radius: 0;
+                max-width: none;
+            }
+        }
+        
+        @media (max-width: 1200px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .bottom-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .smart-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .team-members {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="poster-container">
+        <!-- Header with Logos and Title -->
+        <div class="header-section">
+            <div 
+<img src="logo1.png" alt="logo1" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+
+</div>
+            <div class="title-section">
+                <h1>QI Stand-up: Improving Patient Access</h1>
+                <div class="subtitle">Reduce waiting time (in days) to get new physician appointments in Nephrology Clinic</div>
+                <div class="date">July 23, 2025</div>
+            </div>
+            <div class="logo-placeholder">Logo 2</div>
+        </div>
+
+        <!-- Team Members Section -->
+        <div class="team-section">
+            <div class="team-members">
+                <div class="team-member lead">
+                    <div class="name">Dr. Alaa AlSaqqa</div>
+                    <div class="role">Nephrology Fellow (Lead)</div>
+                </div>
+                <div class="team-member">
+                    <div class="name">Dr. Haneen Yamin</div>
+                    <div class="role">Nephrology Fellow</div>
+                </div>
+                <div class="team-member">
+                    <div class="name">Dr. Hazem Awad</div>
+                    <div class="role">Consultant</div>
+                </div>
+                <div class="team-member">
+                    <div class="name">Dr. Loai Eid</div>
+                    <div class="role">Consultant</div>
+                </div>
+                <div class="team-member">
+                    <div class="name">Mr. Moustafa Etman</div>
+                    <div class="role">Clinic Coordinator</div>
+                </div>
+                <div class="team-member">
+                    <div class="name">Priya Padmanabhan</div>
+                    <div class="role">QI Coach</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Grid Layout -->
+        <div class="main-grid">
+            <!-- Problem Statement -->
+            <div class="section problem-section">
+                <h2>Problem Statement</h2>
+                <div class="section-content">
+                    <p class="problem-text">Long wait times for new patient appointments result in delayed diagnoses, increased patient dissatisfaction, and healthcare delivery inefficiencies.</p>
+                    
+                    <div class="metrics-box">
+                        <div class="metric">
+                            <span class="metric-label">Current Wait Time:</span>
+                            <span class="metric-value">28 days</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Target Wait Time:</span>
+                            <span class="metric-target">12 days</span>
+                        </div>
+                    </div>
+                    
+                    <div class="problem-icons">
+                        <div class="problem-icon">
+                            <div class="icon">⏰</div>
+                            <div class="label">Delayed<br>Diagnoses</div>
+                        </div>
+                        <div class="problem-icon">
+                            <div class="icon">😞</div>
+                            <div class="label">Patient<br>Dissatisfaction</div>
+                        </div>
+                        <div class="problem-icon">
+                            <div class="icon">⚙️</div>
+                            <div class="label">System<br>Inefficiencies</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SMART Aim Statement -->
+            <div class="section">
+                <h2>SMART AIM Statement</h2>
+                <div class="section-content">
+                    <img src="smart.png" alt="SMART Aim Statement" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+                </div>
+            </div>
+
+            <!-- Fishbone Diagram -->
+            <div class="section">
+                <h2>Fishbone Diagram</h2>
+                <div class="section-content">
+                    <img src="fishbone.png" alt="Fishbone Diagram" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+                </div>
+            </div>
+
+            <!-- Process Mapping -->
+            <div class="section">
+                <h2>Process Mapping</h2>
+                <div class="section-content">
+                    <img src="process-mapping.png" alt="Process Mapping" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+                </div>
+            </div>
+
+            <!-- Key Driver Diagram -->
+            <div class="section full-width key-driver-section">
+                <h2>Key Driver Diagram</h2>
+                <div class="section-content">
+                    <div class="diagram-placeholder">
+                        <img src="key-drivers.png" alt="Key Drivers Diagram" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Row: PDSA Cycle and Improvement Chart -->
+        <div class="bottom-row">
+            <!-- PDSA Cycle -->
+            <div class="section">
+                <h2>PDSA Cycle</h2>
+                <div class="section-content">
+                    <div class="PDSA-placeholder">
+                         <img src="PDSA.png" alt="PDSA Cycle" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Improvement Chart -->
+            <div class="section">
+                <h2>IMPROVEMENT CHART</h2>
+                <div class="section-content">
+                    <div class="diagram-placeholder">
+                         <img src="improvement-chart.png" alt="improvement chart" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <!-- Bottom Row: Sustainability and Spread plan -->
+        <div class="bottom-row">
+            <!-- PDSA Cycle -->
+            <div class="section">
+                <h2>Sustainability Plan</h2>
+                <div class="section-content">
+                    <div class="PDSA-placeholder">
+                        <img src="sustainability.png" alt="improvement chart" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Improvement Chart -->
+            <div class="section">
+                <h2>Spread Plan</h2>
+                <div class="section-content">
+                    <div class="diagram-placeholder">
+                        <img src="spread-plan.png" alt="improvement chart" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
+
